@@ -22,18 +22,18 @@ export default function App() {
     <>
       <main>
         <h1>Унос књига</h1>
-        <input value={book.isbn} onChange={(e) => setBook({ ...book, isbn: e.target.value })} type="text" placeholder="ISBN" />
+        <input value={book.isbn} onChange={(e) => setBook({ ...book, isbn: e.target.value })} type="text" placeholder="ИСБН" />
         <br />
-        <input onChange={(e) => setBook({ ...book, title: e.target.value })} type="text" placeholder="Naslov" />
+        <input onChange={(e) => setBook({ ...book, title: e.target.value })} type="text" placeholder="Наслов" />
         <br />
-        <input onChange={(e) => setBook({ ...book, author: e.target.value })} type="text" placeholder="Autor" />
+        <input onChange={(e) => setBook({ ...book, author: e.target.value })} type="text" placeholder="Аутор" />
         <br />
         <button onClick={async () => {
           if (book.author == '' || book.isbn == '' || book.title == '') {
             setNotification('Greška - popuniti sva polja')
             return;
           }; const { error } = await supabase.from("book").insert(book); handleSupabaseRespose(error)
-        }}>DODAJ</button>
+        }}>ДОДАЈ</button>
       </main>
 
       <div className="notification">
