@@ -9,6 +9,7 @@ export default function App() {
   const [notification, setNotification] = useState("xdlol")
 
   function handleSupabaseRespose(response: PostgrestError | null) {
+    console.log(response)
     if (!response) {
       setNotification(`Knjiga ${book.title} - ${book.isbn} je uspešno dodana`)
       const refresh = { ...book, isbn: '' }
